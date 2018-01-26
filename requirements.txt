@@ -1,0 +1,12 @@
+click==6.7
+Flask==0.12.2
+Flask-Bootstrap==3.3.7.1
+Flask-JSGlue==0.3
+Flask-WTF==0.14.2
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
+Pillow==4.3.0
+plotly==2.2.3
+Werkzeug==0.12.2
+WTForms==2.1

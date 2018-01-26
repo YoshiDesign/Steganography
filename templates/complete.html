@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block page_content %}
+{{ super() }}
+<div class="greeting"><p class="p1">Your Image Analysis </br> Courtesy of <a href="https://plot.ly/python/">Plotly for Python</a></p></div>
+</br>
+<div class="anim-box"><p class="on-form">Right click and save this steganographic image!</p>
+    <img class="anim1"src="{{ url_for('static', filename=s_photo) }}" alt="Image Space" width=400 height=365 />
+    <div class="anim-box">
+        <p class="on-form">Then, decode your picture <a href="{{ url_for('decode') }}"><i>here</a></i></p>
+    </div>
+
+</div>
+
+<div id="chart">{{ chart|safe }}</div>
+<div id="right-complete"><h2 class="stats">Thank you for hiding in plain sight. I'll never tell!</h2></div>
+<div id="bars"><div>{{ bars|safe }}</div><p><sup>-- -- verbose colors are accounted for in the generated charts and graphs -- --</sup></p></div>
+
+
+{% endblock %}

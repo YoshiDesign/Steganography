@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% from "field_macro.html" import render_field %}
+{% block title %}{{ super() }}Flasky {% endblock %}
+
+<!-- Flashes -->
+{% block page_content %}
+<!-- Form -->
+<div class="left-half gradient-form">
+    <div class="form-box">
+        <!--upload image form-->
+        <form id="decode-handler" method="post" runat="server" class="steg-form" action="{{ url_for('decode') }}" enctype="multipart/form-data">
+  <dl>
+    <!-- Rendering -->
+    {{ form.csrf_token }}
+    {{ render_field(form.upload, id="decode-field", accept="image/*") }}
+    {{ render_field(form.submit) }}
+    <div class="decoder-view">
+      <img id="preview" class="uploaded-image" src="#" />
+    </div>
+    </div>
+
+</div>
+<div class="right-half gradient-form">
+    <div class="heading-divs">
+        <h3 class="h3-heading">Your Secret is Safe with Us</h3>
+    </div>
+    <div class="over-safe">
+        <p id="safe">The messages contained within your image are nullified of any potential scripts which may otherwise
+        prompt malicious actions from your browser.</p>
+
+    </div>
+</div>
+
+
+
+</div>
+{% endblock %}
+

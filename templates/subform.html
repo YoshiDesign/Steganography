@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% from "field_macro.html" import render_field %}
+{% block title %}{{ super() }} Subform {% endblock %}
+<!---->
+<!---->
+{% block page_content %}
+<!---->
+
+<!---->
+<!---->
+<!---->
+<div class="left-half gradient-form">
+    <div class="form-box">
+      <!--upload image form-->
+      <form method="post" runat="server" class="steg-form" action="{{ url_for('subform') }}"enctype="multipart/form-data">
+        <dl>
+        {{ form.csrf_token }}
+        {{ render_field(form.upload, id="photo-loaded", accept="image/*") }}
+        </br>
+        {{ render_field(form.verbose, id="verbose-mode") }}
+        <p class="on-form"><sup>Verbose mode will highlight your image where the message has been encoded.<br>They may still be decoded.</p>
+        {{ render_field(form.message_area, id="msg-area", rows=19, cols=50) }}
+        {{ render_field(form.submit, value="Conceal Your Message") }}
+        <h2 class="h2-heading">Tips</h2>
+        <div class="tips">
+          <p>Files must be of type .png and < 8Mb</p>
+          <p>Encoding increases the size of your message by a factor of 4.</p>
+          <p>.jpeg and .jpg images may be encoded from the CLI</p>
+          <p>Copy your picture before using the CLI tool; images are overwritten.</p>
+          <p>Do not resize JPEG's after encoding your message or it may be destroyed.</p>
+          <p>Messages larger than your picture will not be decodeable, but they may still be encoded for novelty sake.</p>
+          <p>Text which is not UTF-8 plaintext will not encode properly and cannot be retrieved. (Simply copy/pasting from websites won't always work)</p>
+          <p>If you encode an image multiple times the old messages are overwritten.
+              If the web interface returns an old message it is due to browser caching, which can be disabled. </p>
+          <h2 class="h2-heading">CLI - Usage</h2>
+            <div class="CLI">
+              <p>/$ python steganography.py -h</br></p>
+              <p>usage: steganography.py [-h] [-I] [-d] [-e] target</br>
+              </br>
+              Steganographic Image Processor</br>
+              </br>
+              positional arguments:</br>
+                target         Image file to be encoded.</br>
+              </br>
+              optional arguments:</br>
+                -h, --help     show this help message and exit</br>
+                -I, --Inspector  Displays encoded bits in output.</br>
+                -d, --decode   Decode an image.</br>
+                -e, --encode   Encode a message.
+                </p>
+                </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="right-half gradient-form">
+    <div class="heading-divs">
+        <h3 class="h3-heading">Inspector</h3>
+    </div>
+    <div class="over-image">
+        <img id="preview" class="uploaded-image" src="#" />
+    </div>
+</div>
+<!---->
+<!---->
+{% endblock %}
+<!---->
+<!---->

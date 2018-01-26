@@ -1,0 +1,9 @@
+*.pyc
+*.png
+*.jpg
+*.rar
+*.jar
+*.zip
+venv
+tests
+__pycache__
