@@ -4,7 +4,7 @@ Conceal messages in plain (digitally temporal) sight and decode them.
 
 The web interface only supports png.
 
-/tools/steganography.py can be run as is and supports png & jpg / jpeg.
+/tools/steganography.py can be run as is and supports png / jpg / jpeg.
 
 ~# python steganography.py -h
 
