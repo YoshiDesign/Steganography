@@ -1,8 +1,10 @@
 # Steganography Flask web/app and CLI tool
 
 Conceal messages in plain (digitally temporal) sight and decode them.
-The web interface only supports png
-The CLI interface supports png & jpg / jpeg
+
+The web interface only supports png.
+
+The CLI interface supports png & jpg / jpeg.
 
 ## Python3.6
 
